@@ -1,0 +1,28 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card car-body">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png" width="180px" class="mx-auto">
+        <form (submit)="submitLocation(cityName,countryCode)">
+          <div class="form-groud">
+            <input type="text" class="form-control mt-2" placeholder="Ciudad" #cityName>
+          </div>
+          <div class="form-groud">
+            <input type="text" class="form-control mt-2" placeholder="Codigo Pais" #countryCode>  
+          </div>
+          <button class="btn btn-primary btn-block mt-2">Obtener Datos</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="weather" class="card card-body">
+        <p>Temperatura: {{weather.main.temp}} °C</p>
+        <p>Humedad: {{weather.main.humidity}}</p>
+        <p>Presion: {{weather.main.pressure}}</p>
+        <p>Latitud: {{weather.coord.lat}}</p>
+        <p>Longitud: {{weather.coord.lon}}</p>
+        <p>Descripcion: {{weather.weather[0].description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
